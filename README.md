@@ -1,4 +1,4 @@
-SalesSight
+# SalesSight
 SalesSight is a data ingestion and analytics platform that fetches data from the World Bank API, processes it, and prepares it for dashboard visualization. The platform integrates with Google Cloud Storage (GCP) and Snowflake to store, process, and model data efficiently. It also features a scheduler to automate data ingestion at specified intervals.
 
 Installation and Setup

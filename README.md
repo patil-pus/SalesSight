@@ -17,32 +17,33 @@ Create and activate a virtual environment:
 bash
 Copy code
 python -m venv venv
-source venv/bin/activate  # On MacOS/Linux
-# or
-venv\Scripts\activate      # On Windows
+# On Windows:
+venv\Scripts\activate
+# On MacOS/Linux:
+source venv/bin/activate
 Install required libraries:
 
 bash
 Copy code
-pip install requests google-cloud-storage pandas python-dotenv
+pip install requests google-cloud-storage pandas python-dotenv apscheduler snowflake-connector-python
 pip install gcloud
-pip install apscheduler snowflake-connector-python
 3. Configure Google Cloud Authentication
-Install Google Cloud CLI (for Windows, you can download it from the Google Cloud CLI page).
-Log in to your Google Cloud account:
+Install Google Cloud CLI: If you haven’t installed it yet, download and install it from the Google Cloud CLI page (for Windows users).
+Authenticate: Log in to your Google Cloud account using the following command:
 bash
 Copy code
 gcloud auth application-default login
 4. Set Up Environment Variables
 Create a .env file in the root directory and add the following environment variables for GCP and Snowflake access:
 
+Google Cloud
 plaintext
 Copy code
-# Google Cloud
 GCP_KEY_PATH="path/to/your-service-account-key.json"
 BUCKET_NAME="your_bucket_name"
-
-# Snowflake Configuration
+Snowflake Configuration
+plaintext
+Copy code
 SNOWFLAKE_ACCOUNT="your_snowflake_account"
 SNOWFLAKE_USER="your_snowflake_user"
 SNOWFLAKE_PASSWORD="your_password"
@@ -54,20 +55,20 @@ Copy code
 SalesSight/
 ├── Config/
 │   ├── __init__.py
-│   ├── gcp_config.py          # GCP configuration for accessing Google Cloud Storage
-│   └── settings.py            # Environment variable configuration
+│   ├── gcp_config.py              # GCP configuration for accessing Google Cloud Storage
+│   └── settings.py                # Environment variable configuration
 ├── Controller/
 │   ├── __init__.py
 │   ├── data_ingestion_controller.py # Controller to handle data ingestion from GCP to Snowflake
-│   └── view_controller.py      # Prepares data for dashboard visualization
+│   └── view_controller.py          # Prepares data for dashboard visualization
 ├── Model/
 │   ├── __init__.py
-│   └── world_bank_model.py     # Fetches data from World Bank API
+│   └── world_bank_model.py         # Fetches data from World Bank API
 ├── Scripts/
-│   ├── ingest_data.py          # Script to trigger data ingestion manually
-│   └── scheduler.py            # Scheduler script to automate data ingestion
-├── .env                        # Environment variables (not in version control)
-├── README.md                   # Project documentation
+│   ├── ingest_data.py              # Script to trigger data ingestion manually
+│   └── scheduler.py                # Scheduler script to automate data ingestion
+├── .env                            # Environment variables (not in version control)
+├── README.md                       # Project documentation
 Usage
 1. Running the Scheduler
 The scheduler automates data ingestion by fetching data for each year, starting from 2010, and incrementing the year with each run. The scheduler fetches data every minute by default.

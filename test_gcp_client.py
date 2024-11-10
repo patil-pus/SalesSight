@@ -1,15 +1,15 @@
-from Controller.view_controller import ViewController
+# from Controller.view_controller import ViewController
 
-indicators= ["SP.POP.TOTL", "NY.GDP.MKTP.CD", "SI.POV.DDAY", "NY.GDP.PCAP.CD", "EG.USE.PCAP.KG.OE"]
+# indicators= ["SP.POP.TOTL", "NY.GDP.MKTP.CD", "SI.POV.DDAY", "NY.GDP.PCAP.CD", "EG.USE.PCAP.KG.OE"]
 
-view_controller=ViewController(indicators)
-result=view_controller.prepare_dashboard_data(date_range='2010:2020',country_code='all')
+# view_controller=ViewController(indicators)
+# result=view_controller.prepare_dashboard_data(date_range='2010:2020',country_code='all')
 
-if result:
-    print("Success")
-    print('Sample Data', result[:3])
-else:
-    print('Unsuccessful')
+# if result:
+#     print("Success")
+#     print('Sample Data', result[:3])
+# else:
+#     print('Unsuccessful')
 # combined_data=[]
 
 
@@ -26,3 +26,4 @@ else:
 #     print("Failed to fetch data.")
 
 # print(combined_data)
+

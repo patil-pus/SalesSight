@@ -9,11 +9,11 @@ class DataIngestionController:
     
     def fetch_multiple_indicators(self,country_code="all", date_range="2010:2020"):
         combined_data=[]
-
+        
         for INDICATORS in self.indicators:
             print(f'Fetching data from {INDICATORS}')
             data=WorldBankModel.fetch_data(country_code=country_code,date_range=date_range,INDICATORS=INDICATORS)
-
+            
             if data:
                 for record in data[1]:
                     record['indicator']=INDICATORS
